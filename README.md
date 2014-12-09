@@ -13,7 +13,7 @@ Node provides the RESTful API. Angular provides the frontend and accesses the AP
 1. Clone the repository: `git clone git@github.com:scotch-io/node-todo`
 2. Install the application: `npm install`
 3. Start the server: `node server.js`
-4. View in browser at `http://localhost:8080`
+4. View in browser at `http://localhost:8091`
 
 ## Tutorial Series
 
