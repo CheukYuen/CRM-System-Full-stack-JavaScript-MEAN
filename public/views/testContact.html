@@ -1,0 +1,25 @@
+<h1>Hello Test</h1>
+
+<table class="table table-hover" ng-show="contacts.length >= 1">
+    <thead>
+    <tr>
+        <th ng-repeat="header in headers"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="contact in contacts | filter: query">
+        <td>{{ contact.name }}</td>
+        <td>{{ contact.phone }}</td>
+        <td><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></td>
+        <td>
+            <a class="btn btn-info" ng-click="view(contact)"><i class="glyphicon-eye-open glyphicon"></i> View more</a>
+            <a class="btn btn-warning" ng-click="edit(contact)"><i class="glyphicon-pencil glyphicon"></i> Edit</a>
+            <a class="btn btn-danger" href="#" ng-click="delete(contact)"><i class="glyphicon-trash glyphicon"></i>
+                Delete</a>
+        </td>
+    </tr>
+
+
+    <h2>{{contact.name}}}</h2>
+    </tbody>
+</table>
