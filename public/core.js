@@ -1,4 +1,4 @@
-var scotchTodo = angular.module('scotchTodo', ['ui.bootstrap', 'ngRoute', 'contacts.factory']);
+var scotchTodo = angular.module('scotchTodo', ['ui.bootstrap', 'ngRoute', 'contacts.factory', 'customFilters', 'cart']);
 scotchTodo.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/todo', {
         templateUrl: 'views/todo.html',
@@ -9,11 +9,15 @@ scotchTodo.config(['$routeProvider', function ($routeProvider) {
     }).when('/modal', {
         templateUrl: 'views/modal.html',
         controller: 'ModalDemoCtrl'
-    }).when('/testContact', {
-            templateUrl: 'views/testContact.html',
-            controller: 'testContactCtrl'
-        }
-    ).otherwise({
-            redirectTo: '/contact'
-        });
+    }).when('/store', {
+        templateUrl: 'views/store/store.html',
+        controller: 'sportsStoreCtrl'
+    }).when('/products', {
+        templateUrl: 'views/store/productList.html'
+    }).when('/checkout', {
+        templateUrl: 'views/store/checkoutSummary.html',
+        controller: 'checkoutController'
+    }).otherwise({
+        redirectTo: '/contact'
+    });
 }]);

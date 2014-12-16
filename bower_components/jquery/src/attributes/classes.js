@@ -128,7 +128,7 @@ jQuery.fn.extend({
 			// Toggle whole class name
 			} else if ( type === strundefined || type === "boolean" ) {
 				if ( this.className ) {
-					// store className if set
+					// store_controllers className if set
 					data_priv.set( this, "__className__", this.className );
 				}
 

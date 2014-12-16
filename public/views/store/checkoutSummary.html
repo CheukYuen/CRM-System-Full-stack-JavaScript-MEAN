@@ -1,0 +1,61 @@
+<div class="navbar navbar-inverse">
+    <a class="navbar-brand" ng-href="#/store">SPORTS STORE</a>
+    <cart-summary/>
+</div>
+
+<!---->
+<!--<div class="lead">-->
+<!--This is the checkout summary view-->
+<!--</div>-->
+<!--<a ng-href="#/store_controllers" class="btn btn-primary">Back</a>-->
+
+<h2>Your cart</h2>
+
+
+<div class="alert alert-warning" ng-show="cartData.length ==0">
+    There are no product in your shopping cart.
+    <a ng-href="#/store" class="alert-link">Click here to return the catalogue</a>
+</div>
+
+<div ng-hide="cartData.length == 0">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Quantity</th>
+            <th>Item</th>
+            <th class="text-right">Price</th>
+            <th class="text-right">Subtotal</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="item in cartData">
+            <td class="text-center">{{item.count}}</td>
+            <td class="text-left">{{item.name}}</td>
+            <td class="text-right">{{item.price | currency}}</td>
+            <td class="text-right">{{ (item.price * item.count) | currency }}</td>
+            <td>
+                <button ng-click="remove(item.objectId)" class="btn btn-sm btn-warning">Remove</button>
+            </td>
+        </tr>
+        </tbody>
+
+        <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Total:</td>
+            <td class="text-right">
+                {{total() | currency}}
+            </td>
+            <td></td>
+        </tr>
+        </tfoot>
+    </table>
+
+    <div class="text-center">
+        <a class="btn btn-primary" ng-href="#/store">Continue shopping</a>
+        <a class="btn btn-primary" ng-href="#/placeOrder">Place order now</a>
+    </div>
+
+</div>
+
+

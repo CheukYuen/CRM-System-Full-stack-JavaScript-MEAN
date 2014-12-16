@@ -61,6 +61,12 @@ angular.module('scotchTodo').controller('contactController', function ($scope, $
         });
     };
 
+
+    $scope.addProductToCustomer = function(c){
+
+        var id = c._id;
+
+    };
 });
 
 

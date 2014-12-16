@@ -12,6 +12,7 @@
 
     <!-- SCROLLS -->
     <link href="/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
     <!-- load bootstrap -->
     <script src="/bower_components/angular/angular.min.js"></script>
 
@@ -23,73 +24,41 @@
 
 
     <script src="core.js"></script>
-    <script src="todoController.js"></script>
-    <script src="contactController.js"></script>
-    <script src="modalDemoCtrl.js"></script>
-    <script src="contactFactory.js"></script>
+    <script src="common_controllers/todoController.js"></script>
+    <script src="contactsJS/contactController.js"></script>
+    <script src="common_controllers/modalDemoCtrl.js"></script>
+    <script src="contactsJS/contactFactory.js"></script>
+
+    <script src="store_controllers/sportsStoreCtrl.js"></script>
+    <script src="filters/customFilters.js"></script>
+    <script src="store_controllers/productListCtrl.js"></script>
+    <script src="store_controllers/checkoutCtrl.js"></script>
+    <script src="cart/cart.js"></script>
+
 
 </head>
 <!-- SET THE CONTROLLER AND GET ALL TODOS WITH INITIALIZE FUNCTION -->
 
-<style>
-    /* Space out content a bit */
-    body {
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
-
-    /* Everything but the jumbotron gets side spacing for mobile first views */
-
-    footer {
-        padding-right: 15px;
-        padding-left: 15px;
-    }
-
-    /* Custom page header */
-    .header {
-        border-bottom: 1px solid #e5e5e5;
-    }
-    /* Make the masthead heading the same height as the navigation */
-    .header h3 {
-        padding-bottom: 19px;
-        margin-top: 0;
-        margin-bottom: 0;
-        line-height: 40px;
-    }
-
-    /* Custom page footer */
-    footer {
-        padding-top: 19px;
-        color: #777;
-        border-top: 1px solid #e5e5e5;
-    }
-
-    /* Customize container */
-    /*@media (min-width: 768px) {*/
-    /*.container {*/
-    /*max-width: 730px;*/
-    /*}*/
-    /*}*/
-</style>
 
 <body>
 
 <div class="container">
     <div class="header">
-        <nav>
-            <ul class="nav nav-pills pull-right">
+        <ul class="nav nav-pills pull-right">
 
-                <li role="presentation"><a ng-href="#/contact">Contact</a></li>
-                <li role="presentation"><a ng-href="#/todo">Todo</a></li>
-                <li role="presentation"><a ng-href="#/modal">Modal</a></li>
+            <li><a ng-href="#/contact">Contact</a></li>
+            <li><a ng-href="#/todo">Todo</a></li>
+            <li><a ng-href="#/modal">Modal</a></li>
+            <li><a ng-href="#/store">Store</a></li>
 
-            </ul>
-            <h3 class="text-muted">myContact</h3>
-        </nav>
+
+        </ul>
+        <h3 class="text-muted">myContact</h3>
     </div>
-    <div class="jumbotron">
-        <div ng-view></div>
-    </div>
+
+
+    <div ng-view></div>
+
 
     <div class="footer">
         <p><span class="glyphicon glyphicon-heart"></span> from Leon Lin</p>

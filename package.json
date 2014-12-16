@@ -1,14 +1,14 @@
 {
-  "name"         : "CRM",
-  "version"      : "0.0.0",
-  "description"  : "Simple CRM application.",
-  "main"         : "server.js",
-  "author"       : "zlin",
-  "dependencies" : {
-    "express"    : "~4.7.2",
-    "mongoose"   : "~3.6.2",
-    "morgan"	 : "~1.2.2",
-	"body-parser": "~1.5.2",
-	"method-override": "~2.1.2"
-  }
+"name"         : "CRM",
+"version"      : "0.0.0",
+"description"  : "Simple CRM application.",
+"main"         : "server.js",
+"author"       : "zlin",
+"dependencies" : {
+"express"    : "~4.7.2",
+"mongoose"   : "~3.6.2",
+"morgan"	 : "~1.2.2",
+"body-parser": "~1.5.2",
+"method-override": "~2.1.2"
+}
 }
