@@ -1,7 +1,7 @@
 /**
  * Created by zlin on 12/3/14.
  */
-angular.module('scotchTodo').controller('contactController', function ($scope, $http, contactFactory, $modal) {
+angular.module('scotchTodo').controller('contactController', function ($scope, $http, contactFactory, $modal, $rootScope) {
 
     //$scope.formData = {};
 
@@ -65,6 +65,7 @@ angular.module('scotchTodo').controller('contactController', function ($scope, $
     $scope.addProductToCustomer = function(c){
 
         var id = c._id;
+
 
     };
 });

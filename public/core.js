@@ -17,6 +17,9 @@ scotchTodo.config(['$routeProvider', function ($routeProvider) {
     }).when('/checkout', {
         templateUrl: 'views/store/checkoutSummary.html',
         controller: 'checkoutController'
+    }).when('/placeOrder', {
+        templateUrl: 'views/store/placeOrder.html',
+        controller: 'orderController'
     }).otherwise({
         redirectTo: '/contact'
     });
