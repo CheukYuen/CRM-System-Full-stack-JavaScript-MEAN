@@ -31,10 +31,10 @@
         <td>{{ contact.phone }}</td>
         <td><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></td>
         <td>
-            <a class="btn btn-success" ng-href = "#/store"><i class="glyphicon-shopping-cart glyphicon"></i> Store</a>
-            <a class="btn btn-info" ng-click="view(contact)"><i class="glyphicon-eye-open glyphicon"></i> View more</a>
-            <a class="btn btn-warning" ng-click="edit(contact)"><i class="glyphicon-pencil glyphicon"></i> Edit</a>
-            <a class="btn btn-danger" ng-click="deleteCon(contact)"><i class="glyphicon-trash glyphicon"></i> Delete</a>
+            <a class="btn btn-success" ng-href = "#/store/{{contact.name}}"><i class="glyphicon-shopping-cart glyphicon"></i> Store</a>
+            <a class="btn btn-info" ng-click="view(contact._id)"><i class="glyphicon-eye-open glyphicon"></i> View more</a>
+            <a class="btn btn-warning" ng-click="edit(contact._id)"><i class="glyphicon-pencil glyphicon"></i> Edit</a>
+            <a class="btn btn-danger" ng-click="deleteCon(contact._id)"><i class="glyphicon-trash glyphicon"></i> Delete</a>
 
         </td>
     </tr>

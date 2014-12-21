@@ -9,6 +9,9 @@ scotchTodo.config(['$routeProvider', function ($routeProvider) {
     }).when('/modal', {
         templateUrl: 'views/modal.html',
         controller: 'ModalDemoCtrl'
+    }).when('/store/:contactName', {
+        templateUrl: 'views/store/store.html',
+        controller: 'sportsStoreCtrl'
     }).when('/store', {
         templateUrl: 'views/store/store.html',
         controller: 'sportsStoreCtrl'

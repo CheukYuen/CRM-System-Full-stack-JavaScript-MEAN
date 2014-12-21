@@ -20,8 +20,7 @@ angular.module('scotchTodo').controller('contactController', function ($scope, $
     };
 
 
-    $scope.view = function (c) {
-        var id = c._id;
+    $scope.view = function (id) {
 
         var modalInstance = $modal.open({
             templateUrl: 'viewContactModal.html',
@@ -35,8 +34,8 @@ angular.module('scotchTodo').controller('contactController', function ($scope, $
     };
 
 
-    $scope.edit = function (c) {
-        var id = c._id;
+    $scope.edit = function (id) {
+
         var modalInstance = $modal.open({
             templateUrl: 'editContactModal.html',
             controller: 'editContactModalCtrl',
@@ -48,8 +47,8 @@ angular.module('scotchTodo').controller('contactController', function ($scope, $
         });
     };
 
-    $scope.deleteCon = function (c) {
-        var id = c._id;
+    $scope.deleteCon = function (id) {
+
         var modalInstance = $modal.open({
             templateUrl: 'deleteContactModal.html',
             controller: 'deleteContactModalCtrl',

@@ -35,7 +35,7 @@ module.exports = function (app) {
             // get and return all the todos after you create another
             Todo.find(function (err, todos) {
                 if (err)
-                    res.send(err)
+                    res.send(err);
                 res.json(todos);
             });
         });
@@ -53,7 +53,7 @@ module.exports = function (app) {
             // get and return all the todos after you create another
             Todo.find(function (err, todos) {
                 if (err)
-                    res.send(err)
+                    res.send(err);
                 res.json(todos);
             });
         });
