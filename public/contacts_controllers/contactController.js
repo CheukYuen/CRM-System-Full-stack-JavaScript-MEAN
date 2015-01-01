@@ -1,10 +1,10 @@
 /**
  * Created by zlin on 12/3/14.
  */
-angular.module('scotchTodo').controller('contactController', function ($scope, $http, contactFactory, $modal, $rootScope) {
+angular.module('scotchTodo').controller('contactController', function ($scope, $http, contactFactory, $modal, cart) {
 
     //$scope.formData = {};
-
+    $scope.removeCartData = cart.removeAllProduct();
     // when landing on the page, get all todos and show them
     $scope.headers = ["name", "phone", "email"];
 
@@ -61,12 +61,6 @@ angular.module('scotchTodo').controller('contactController', function ($scope, $
     };
 
 
-    $scope.addProductToCustomer = function(c){
-
-        var id = c._id;
-
-
-    };
 });
 
 
@@ -91,6 +85,24 @@ scotchTodo.controller('viewContactModalCtrl', function ($scope, $http, contact, 
     $scope.allheaders = ["name", "phone", "email"];
     $scope.contact = contact.data.contact;
 
+
+
+    $scope.ordersTotal = 0.00;
+
+
+
+    //Calculate grand total
+    //Handled at this level so we don't duplicate it across parent controllers
+    if ($scope.contact && $scope.contact.shoppingCart) {
+        var total = 0.00;
+        for (var i = 0; i < $scope.contact.shoppingCart.length; i++) {
+            var order = $scope.contact.shoppingCart[i];
+            total += order.price * order.count;
+        }
+        $scope.ordersTotal = total;
+    }
+
+
     $scope.close = function () {
         $modalInstance.dismiss('cancel');
     };
@@ -113,7 +125,7 @@ scotchTodo.controller('editContactModalCtrl', function ($scope, $http, $modalIns
     }
 });
 
-scotchTodo.controller('deleteContactModalCtrl', function ($scope, $http,$modalInstance, $window, contact, contactFactory) {
+scotchTodo.controller('deleteContactModalCtrl', function ($scope, $http, $modalInstance, $window, contact, contactFactory) {
     $scope.name = contact.data.contact.name;
 
     $scope.deleteContact = function () {

@@ -1,4 +1,22 @@
+<style>
 
+    .ordersTable tr:first-child th, .customersTable tr:first-child th {
+        background-color: #027FF4;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .ordersTable {
+        width: 85%;
+    }
+
+
+</style>
+
+
+<div class="page-header">
+    <h1>All Contacts</h1>
+</div>
 <p ng-show="showMessage"> {{ message }}</p>
 
 <h2 class="inline" ng-if="contacts.length == 0">You have no contacts. </h2>
@@ -8,7 +26,7 @@
     contacts.</h2>
 
 
-<div class="col-sm-3 col-xs-12 col-lg-3">
+<div class="col-sm-4 col-xs-11 col-lg-4">
     <form class="form-search">
         <div class="input-group">
             <input type="text" class="form-control " placeholder="Search..." ng-model="query">
@@ -31,7 +49,8 @@
         <td>{{ contact.phone }}</td>
         <td><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></td>
         <td>
-            <a class="btn btn-success" ng-href = "#/store/{{contact.name}}"><i class="glyphicon-shopping-cart glyphicon"></i> Store</a>
+            <a class="btn btn-success" ng-click="removeCartData()" ng-href="#/store/{{contact._id}}"><i
+                    class="glyphicon-shopping-cart glyphicon"></i> Order</a>
             <a class="btn btn-info" ng-click="view(contact._id)"><i class="glyphicon-eye-open glyphicon"></i> View more</a>
             <a class="btn btn-warning" ng-click="edit(contact._id)"><i class="glyphicon-pencil glyphicon"></i> Edit</a>
             <a class="btn btn-danger" ng-click="deleteCon(contact._id)"><i class="glyphicon-trash glyphicon"></i> Delete</a>
@@ -95,16 +114,54 @@
         <div class="modal-header">
             <h3>{{contact.name }}</h3>
         </div>
-        <div class="modal-body">
+        <!--<div class="modal-body">-->
 
-            <dl class="dl-horizontal">
-                <dt ng-repeat="header in allheaders ">{{header }}:</dt>
-                <dd>{{contact.name }}</dd>
-                <dd>{{contact.phone || " - " }}</dd>
-                <dd>
-                    <a href="mailto:{{ contact.email }}">{{contact.email || " - " }}</a>
-                </dd>
-            </dl>
+        <!--<dl class="dl-horizontal">-->
+        <!--<dt ng-repeat="header in allheaders ">{{header }}:</dt>-->
+        <!--<dd>{{contact.name }}</dd>-->
+        <!--<dd>{{contact.phone || " - " }}</dd>-->
+        <!--<dd>-->
+        <!--<a href="mailto:{{ contact.email }}">{{contact.email || " - " }}</a>-->
+        <!--</dd>-->
+        <!--</dl>-->
+
+        <!--</div>-->
+        <div class="modal-body">
+            <table class="table table-hover table-striped table-condensed table-bordered ordersTable"
+                    >
+
+
+                <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Date</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Total</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr ng-repeat="order in contact.shoppingCart" class="repeat-animation">
+
+
+                    <td>{{order.name}}</td>
+                    <td>{{order.createdAt | date:"MM/dd/yyyy 'at' h:mma"}}</td>
+                    <td>{{order.count}}</td>
+                    <td>{{order.price | currency }}</td>
+                    <td>{{order.count * order.price | currency }}</td>
+                </tr>
+
+                <tr class="repeat-animation">
+                    <td colspan="4">
+                        &nbsp;
+                    </td>
+                    <td>
+                        <strong>{{ ordersTotal | currency }}</strong>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
 
         </div>
         <div class="modal-footer">

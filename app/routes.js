@@ -113,10 +113,16 @@ module.exports = function (app) {
         var id = req.params.id;
         if (id) {
             contactModel.findById(id, function (err, contact) {
-                contact.name = req.body.name,
-                    contact.phone = req.body.phone,
-                    contact.email = req.body.email;
+                console.log(JSON.stringify(contact, null, 2));
 
+                contact.name = req.body.name;
+                contact.phone = req.body.phone;
+                contact.email = req.body.email;
+
+                //contact.orders = req.body.orders; // req.body.orders;
+                contact.shoppingCart = req.body.shoppingCart;
+                contact.orders.order = req.body.orders.order;
+                console.log(JSON.stringify(contact, null, 2));
                 contact.save(function (err) {
                     if (!err) {
                         res.json(true);
@@ -128,6 +134,28 @@ module.exports = function (app) {
             });
         }
     });
+
+    //add orders
+    //app.put('/api/contact/:id', function (req, res) {
+    //    var id = req.params.id;
+    //    if (id) {
+    //        contactModel.findById(id, function (err, contact) {
+    //            contact.orders.name = req.body.name,
+    //                contact.orders.price = req.body.price,
+    //                contact.orders.quantity = req.body.count;
+    //
+    //            contact.save(function (err) {
+    //                if (!err) {
+    //                    res.json(true);
+    //                } else {
+    //                    res.json(false);
+    //                    console.log(err);
+    //                }
+    //            });
+    //        });
+    //    }
+    //});
+
 
     app.delete('/api/contact/:id', function (req, res) {
         var id = req.params.id;
@@ -144,6 +172,7 @@ module.exports = function (app) {
             });
         }
     });
+
 
     // application -------------------------------------------------------------
     app.get('*', function (req, res) {

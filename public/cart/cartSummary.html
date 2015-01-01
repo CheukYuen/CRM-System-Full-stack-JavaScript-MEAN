@@ -5,9 +5,9 @@
 
 <div class="navbar-right">
     <div class="navbar-text">
-        <b>Your cart:</b>
+        <b>{{currentCustomer.name}}'s cart:</b>
         {{itemCount()}} item(s),
         {{total() |currency}}
     </div>
-    <a ng-href = "#/checkout" class="btn btn-default navbar-btn">Checkout</a>
+    <a ng-href = "#/checkout/{{currentCustomer.contactId}}" class="btn btn-default navbar-btn">Checkout</a>
 </div>

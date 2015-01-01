@@ -29,15 +29,38 @@ angular.module('cart', []).factory('cart', function () {
 
         getProducts: function () {
             return cartData;
+        },
+
+        removeAllProduct : function(){
+            cartData.length = 0;
         }
     }
-}).directive('cartSummary', function (cart) {
+}).directive('cartSummary', function (cart, $http) {
     return {
         restrict: 'E',
         templateUrl: 'cart/cartSummary.html',
-        controller: function ($scope) {
-
+        controller: function ($scope, $routeParams) {
             var cartData = cart.getProducts();
+
+            //var cloudCartData = [];
+            var currentCustomerID = $routeParams.contactId;
+
+            //get shopping cart info
+            $http.get('/api/contact/' + currentCustomerID)
+                .success(function (data) {
+
+                    $scope.currentCustomer = {
+                        name: data.contact.name,
+                        contactId: data.contact._id
+
+                    };
+
+
+                })
+                .error(function (data) {
+                    console.log('Error: ' + data);
+                });
+
 
             $scope.total = function () {
                 var total = 0;
@@ -46,6 +69,7 @@ angular.module('cart', []).factory('cart', function () {
                 }
                 return total;
             };
+
 
             $scope.itemCount = function () {
                 var total = 0;

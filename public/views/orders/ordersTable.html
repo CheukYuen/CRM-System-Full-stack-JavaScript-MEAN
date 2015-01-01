@@ -1,0 +1,51 @@
+<style>
+
+    .ordersTable tr:first-child th, .customersTable tr:first-child th {
+        background-color: #027FF4;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .ordersTable {
+        width: 85%;
+
+    }
+
+
+</style>
+
+<table class="table table-hover table-striped table-condensed table-bordered ordersTable"
+       ng-controller="orderChildController">
+
+
+    <thead>
+    <tr>
+        <th>Product</th>
+        <th>Date</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
+        <th>Total</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr ng-repeat="order in customer.shoppingCart" class="repeat-animation">
+
+
+        <td>{{order.name}}</td>
+        <td>{{order.createdAt | date:"MM/dd/yyyy 'at' h:mma"}}</td>
+        <td>{{order.count}}</td>
+        <td>{{order.price | currency }}</td>
+        <td>{{order.count * order.price | currency }}</td>
+    </tr>
+
+    <tr class="repeat-animation">
+        <td colspan="4">
+            &nbsp;
+        </td>
+        <td>
+            <strong>{{ ordersTotal | currency }}</strong>
+        </td>
+    </tr>
+    </tbody>
+</table>

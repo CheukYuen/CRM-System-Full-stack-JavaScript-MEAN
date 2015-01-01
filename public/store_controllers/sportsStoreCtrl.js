@@ -7,10 +7,29 @@ angular.module('scotchTodo')
         $http.defaults.headers.common['X-Parse-Application-Id'] = 'BHBNeR7iY2yEXR3tx1djnfEZXVm6SSMv0GhqlvTQ';
         $http.defaults.headers.common['X-Parse-REST-API-Key'] = 'yLGbWU0QCtdVubUfRQGOaOfN88q0BhPMzIHS9exO';
     })
-    .controller('sportsStoreCtrl', function ($scope, $http,  dataUrl) {
+    .controller('sportsStoreCtrl', function ($scope, $http, dataUrl, contactFactory, $routeParams) {
 
         $scope.data = {};
 
+
+        var currentCustomerID = $routeParams.contactId;
+
+        //get customer name
+        $http.get('/api/contact/' + currentCustomerID)
+            .success(function (data) {
+                console.log(data.contact.name);
+
+
+                $scope.currentCustomer = {
+                    name: data.contact.name
+                };
+            })
+            .error(function (data) {
+                console.log('Error: ' + data);
+            });
+
+
+        //get products
         $http.get(dataUrl)
             .success(function (data) {
                 $scope.data.products = data.results;

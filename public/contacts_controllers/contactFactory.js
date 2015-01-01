@@ -20,8 +20,11 @@ contactFactory.factory('contactFactory', ['$http',function ($http) {
         deleteContact: function (id) {
             return $http.delete('/api/contact/' + id);
         },
-        contactName: function(id){
-            return $http.get('/api/contact/' + id).data.contact.name;
+        contactId: function(id){
+            return $http.get('/api/contact/' + id).data.contact._id;
+        },
+        addOrder: function(order){
+            return $http.put('/api/contact' + id, o);
         }
     }
 }]);

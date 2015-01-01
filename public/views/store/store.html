@@ -1,11 +1,17 @@
+<div class="page-header">
+    <h1>Sales Order</h1>
+</div>
+
 <div class="navbar navbar-inverse">
     <a class="navbar-brand" ng-href="#/store">Inventory</a>
-    <cart-summary />
+    <cart-summary/>
 </div>
+
+
 
 <div class="alert alert-danger" ng-show="data.error">
     Error({{data.error.status}}). The product data was not loaded.
     <a href="/index.html" class="alert-link">Click here to try again</a>
 </div>
 
-<ng-include src = "'views/store/productList.html'"></ng-include>
+<ng-include src="'views/store/productList.html'"></ng-include>
