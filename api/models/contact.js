@@ -23,16 +23,6 @@ var orderListSchema = new schema({
 });
 
 
-//var contactSchema = new schema({
-//    name: {type: String, required: true},
-//    phone: {type: String},
-//    email: {type: String},
-//    orders: [{
-//        name:{type: String, required: true},
-//        price:{type: Number},
-//        count:{type:Number}
-//    }]
-//});
 
 
 var contactSchema = new schema({

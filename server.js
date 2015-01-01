@@ -12,7 +12,7 @@ var methodOverride = require('method-override'); // simulate DELETE and PUT (exp
 // configuration ===============================================================
 mongoose.connect(database.url); 	// connect to mongoDB database on modulus.io
 
-app.use(express.static(__dirname + '/public')); 				// set the static files location /public/img will be /img for users
+app.use(express.static(__dirname + '/app')); 				// set the static files location /public/img will be /img for users
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 app.use(morgan('dev')); 										// log every request to the console
 app.use(bodyParser.urlencoded({'extended':'true'})); 			// parse application/x-www-form-urlencoded
@@ -21,7 +21,7 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse applica
 app.use(methodOverride());
 
 // routes ======================================================================
-require('./app/routes.js')(app);
+require('./api/routes.js')(app);
 //require('./app/routesContact.js')(app);
 
 // listen (start app with node server.js) ======================================

@@ -64,7 +64,7 @@ angular.module('scotchTodo').controller('contactController', function ($scope, $
 });
 
 
-scotchTodo.controller('addContactModalCtrl', function ($scope, $http, $modalInstance, $window, contactFactory) {
+leonCRM.controller('addContactModalCtrl', function ($scope, $http, $modalInstance, $window, contactFactory) {
 
     $scope.form = {};
 
@@ -80,7 +80,7 @@ scotchTodo.controller('addContactModalCtrl', function ($scope, $http, $modalInst
     };
 });
 
-scotchTodo.controller('viewContactModalCtrl', function ($scope, $http, contact, $modalInstance) {
+leonCRM.controller('viewContactModalCtrl', function ($scope, $http, contact, $modalInstance) {
 
     $scope.allheaders = ["name", "phone", "email"];
     $scope.contact = contact.data.contact;
@@ -109,7 +109,7 @@ scotchTodo.controller('viewContactModalCtrl', function ($scope, $http, contact, 
 });
 
 
-scotchTodo.controller('editContactModalCtrl', function ($scope, $http, $modalInstance, $window, contactFactory, contact) {
+leonCRM.controller('editContactModalCtrl', function ($scope, $http, $modalInstance, $window, contactFactory, contact) {
     $scope.form = {};
     $scope.allheaders = ["name", "phone", "email"];
     $scope.form.edit = contact.data.contact;
@@ -125,7 +125,7 @@ scotchTodo.controller('editContactModalCtrl', function ($scope, $http, $modalIns
     }
 });
 
-scotchTodo.controller('deleteContactModalCtrl', function ($scope, $http, $modalInstance, $window, contact, contactFactory) {
+leonCRM.controller('deleteContactModalCtrl', function ($scope, $http, $modalInstance, $window, contact, contactFactory) {
     $scope.name = contact.data.contact.name;
 
     $scope.deleteContact = function () {

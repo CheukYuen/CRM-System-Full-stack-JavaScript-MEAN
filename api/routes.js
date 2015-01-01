@@ -1,63 +1,7 @@
-var Todo = require('./models/todo');
+
 var contactModel = require('./models/contact');
 
 module.exports = function (app) {
-
-    app.get('/api/todos', function (req, res) {
-
-        // use mongoose to get all todos in the database
-        Todo.find(function (err, todos) {
-
-            // if there is an error retrieving, send the error. nothing after res.send(err) will execute
-            //if (err)
-            //	res.send(err);
-            //res.json(todos); // return all todos in JSON format
-
-            if (err) {
-                res.send(err);
-            } else {
-                res.json(todos);
-            }
-        });
-    });
-
-    // create todo and send back all todos after creation
-    app.post('/api/todos', function (req, res) {
-
-        // create a todo, information comes from AJAX request from Angular
-        Todo.create({
-            text: req.body.text,
-            done: false
-        }, function (err, todos) {
-            if (err)
-                res.send(err);
-
-            // get and return all the todos after you create another
-            Todo.find(function (err, todos) {
-                if (err)
-                    res.send(err);
-                res.json(todos);
-            });
-        });
-
-    });
-
-    // delete a todo
-    app.delete('/api/todos/:todo_id', function (req, res) {
-        Todo.remove({
-            _id: req.params.todo_id
-        }, function (err, todo) {
-            if (err)
-                res.send(err);
-
-            // get and return all the todos after you create another
-            Todo.find(function (err, todos) {
-                if (err)
-                    res.send(err);
-                res.json(todos);
-            });
-        });
-    });
 
 
     //look at all
@@ -135,26 +79,6 @@ module.exports = function (app) {
         }
     });
 
-    //add orders
-    //app.put('/api/contact/:id', function (req, res) {
-    //    var id = req.params.id;
-    //    if (id) {
-    //        contactModel.findById(id, function (err, contact) {
-    //            contact.orders.name = req.body.name,
-    //                contact.orders.price = req.body.price,
-    //                contact.orders.quantity = req.body.count;
-    //
-    //            contact.save(function (err) {
-    //                if (!err) {
-    //                    res.json(true);
-    //                } else {
-    //                    res.json(false);
-    //                    console.log(err);
-    //                }
-    //            });
-    //        });
-    //    }
-    //});
 
 
     app.delete('/api/contact/:id', function (req, res) {

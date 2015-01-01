@@ -1,16 +1,10 @@
-var scotchTodo = angular.module('scotchTodo', ['ui.bootstrap', 'ngRoute', 'contacts.factory', 'customFilters', 'cart']);
+var leonCRM = angular.module('scotchTodo', ['ui.bootstrap', 'ngRoute', 'contacts.factory', 'customFilters', 'cart']);
 
-scotchTodo.config(['$routeProvider', function ($routeProvider) {
+leonCRM.config(['$routeProvider', function ($routeProvider) {
 
-    $routeProvider.when('/todo', {
-        templateUrl: 'views/todo.html',
-        controller: 'todoController'
-    }).when('/contact', {
+    $routeProvider.when('/contact', {
         templateUrl: 'views/contact.html',
         controller: 'contactController'
-    }).when('/modal', {
-        templateUrl: 'views/modal.html',
-        controller: 'ModalDemoCtrl'
     }).when('/store/:contactId', {
         templateUrl: 'views/store/store.html',
         controller: 'sportsStoreCtrl'
@@ -24,7 +18,6 @@ scotchTodo.config(['$routeProvider', function ($routeProvider) {
         controller: 'orderController'
     }).when('/complete', {
         templateUrl: 'views/store/orderComplete.html'
-
     }).when('/inventory', {
         templateUrl: 'views/inventory/inventory.html',
         controller: 'sportsStoreCtrl'
