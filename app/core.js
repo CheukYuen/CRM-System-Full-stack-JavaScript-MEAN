@@ -21,8 +21,10 @@ leonCRM.config(['$routeProvider', function ($routeProvider) {
     }).when('/inventory', {
         templateUrl: 'views/inventory/inventory.html',
         controller: 'sportsStoreCtrl'
+    }).when('/signin', {
+        templateUrl: 'views/signin.html'
     }).otherwise({
-        redirectTo: '/contact'
+        redirectTo: '/signin'
     });
 }]);
 
