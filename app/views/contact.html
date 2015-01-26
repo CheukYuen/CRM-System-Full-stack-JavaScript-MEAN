@@ -46,12 +46,13 @@
     <tbody>
     <tr ng-repeat="contact in contacts | filter: query">
         <td>{{ contact.name }}</td>
-        <td>{{ contact.phone }}</td>
+        <td>{{ contact.phone |tel}}</td>
         <td><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></td>
         <td>
             <a class="btn btn-success" ng-click="removeCartData()" ng-href="#/store/{{contact._id}}"><i
                     class="glyphicon-shopping-cart glyphicon"></i> Order</a>
-            <a class="btn btn-info" ng-click="view(contact._id)"><i class="glyphicon-eye-open glyphicon"></i> Order History</a>
+            <a class="btn btn-info" ng-click="view(contact._id)"><i class="glyphicon-eye-open glyphicon"></i> Order
+                History</a>
             <a class="btn btn-warning" ng-click="edit(contact._id)"><i class="glyphicon-pencil glyphicon"></i> Edit</a>
             <a class="btn btn-danger" ng-click="deleteCon(contact._id)"><i class="glyphicon-trash glyphicon"></i> Delete</a>
 
@@ -70,12 +71,12 @@
             <h3>Add a contact</h3>
         </div>
         <div class="modal-body">
-            <form role="form" class="form-horizontal" ng-model="addForm">
+            <form role="form" class="form-horizontal" ng-model="addForm" name = "myForm">
                 <div class="form-group">
                     <label for="inputName" class="col-sm-2 control-label">Name</label>
 
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="inputName" ng-model="form.add.name" name="name"
+                        <input type="text" class="form-control" ng-model="form.add.name" name="name"
                                placeholder="Name">
                     </div>
                 </div>
@@ -83,7 +84,7 @@
                     <label class="col-sm-2 control-label" for="inputPhone">Phone</label>
 
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="inputPhone" ng-model="form.add.phone" name="phone"
+                        <input type="text" class="form-control" ng-model="form.add.phone" name="phone"
                                placeholder="Phone">
                     </div>
                 </div>
@@ -91,9 +92,12 @@
                     <label class="control-label col-sm-2" for="inputEmail">E-mail</label>
 
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="inputEmail" ng-model="form.add.email" name="email"
+                        <input type="email" class="form-control" ng-model="form.add.email" name="email"
                                placeholder="E-mail">
+
                     </div>
+
+
                 </div>
 
             </form>

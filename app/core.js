@@ -1,4 +1,4 @@
-var leonCRM = angular.module('scotchTodo', ['ui.bootstrap', 'ngRoute', 'contacts.factory', 'customFilters', 'cart']);
+var leonCRM = angular.module('scotchTodo', ['ui.bootstrap', 'ngRoute', 'contacts.factory', 'customFilters', 'telFilter','cart']);
 
 leonCRM.config(['$routeProvider', function ($routeProvider) {
 

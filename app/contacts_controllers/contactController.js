@@ -72,12 +72,14 @@ leonCRM.controller('addContactModalCtrl', function ($scope, $http, $modalInstanc
     $scope.addContact = function () {
         contactFactory.addContact($scope.form.add);
         $modalInstance.close($window.location.reload());
+
     };
 
 
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
     };
+
 });
 
 leonCRM.controller('viewContactModalCtrl', function ($scope, $http, contact, $modalInstance) {
