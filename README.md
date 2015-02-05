@@ -1,8 +1,8 @@
-# Node Contact App
+# CRM System — Full-stack JavaScript development with MEAN
 
-A Node app built with MongoDB and Angular. For demonstration purposes and a tutorial.
-
-Node provides the RESTful API. Angular provides the frontend and accesses the API. MongoDB stores like a hoarder.
+A customer relationship management (CRM) System for sporting goods store include contact management system and order management system.
+The front-end use HTML5 technologies: HTML5, CSS3, Angular.JS, jQuery and Bootstrap to build a single page web app that communicate with the back-end via RESTful API.
+The back-end use JavaScript technologies: Node.js, Express.js, MongoDB and Mongoose to provide RESTful API.
 
 ## Requirements
 
