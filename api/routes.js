@@ -6,6 +6,8 @@ module.exports = function (app) {
 
     //look at all
     app.get('/api/contact', function (req, res) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "X-Requested-With");
         contactModel.find(function (err, contacts) {
             if (!err) {
                 res.json(contacts);
@@ -17,6 +19,8 @@ module.exports = function (app) {
 
     //look at one
     app.get('/api/contact/:id', function (req, res) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "X-Requested-With");
         var id = req.params.id;
         if (id) {
             contactModel.findById(id, function (err, contact) {
@@ -36,6 +40,8 @@ module.exports = function (app) {
 
     //create a contact
     app.post('/api/contact', function (req, res) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "X-Requested-With");
 
         var contact;
         contact = new contactModel({
@@ -54,6 +60,8 @@ module.exports = function (app) {
 
     //edit&update contact
     app.put('/api/contact/:id', function (req, res) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "X-Requested-With");
         var id = req.params.id;
         if (id) {
             contactModel.findById(id, function (err, contact) {
@@ -82,6 +90,8 @@ module.exports = function (app) {
 
 
     app.delete('/api/contact/:id', function (req, res) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "X-Requested-With");
         var id = req.params.id;
         if (id) {
             contactModel.findById(id, function (err, contact) {
@@ -100,6 +110,8 @@ module.exports = function (app) {
 
     // application -------------------------------------------------------------
     app.get('*', function (req, res) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "X-Requested-With");
         res.sendfile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
     });
 };
