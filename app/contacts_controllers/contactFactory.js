@@ -22,9 +22,9 @@ contactFactory.factory('contactFactory', ['$http',function ($http) {
         },
         contactId: function(id){
             return $http.get('/api/contact/' + id).data.contact._id;
-        },
-        addOrder: function(order){
-            return $http.put('/api/contact' + id, o);
         }
+        //addOrder: function(order){
+        //    return $http.put('/api/contact' + id, o);
+        //}
     }
 }]);
