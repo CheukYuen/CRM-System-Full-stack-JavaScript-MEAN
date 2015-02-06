@@ -1,5 +1,6 @@
 
 var contactModel = require('./models/contact');
+var cors = require('cors');
 
 module.exports = function (app) {
 
@@ -58,6 +59,7 @@ module.exports = function (app) {
     });
 
     //edit&update contact
+    app.options('/api/contact/:id', cors()); // enable pre-flight request for edit request
     app.put('/api/contact/:id', function (req, res) {
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
