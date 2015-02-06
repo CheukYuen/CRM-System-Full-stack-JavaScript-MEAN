@@ -13,11 +13,11 @@ var methodOverride = require('method-override'); // simulate DELETE and PUT (exp
 mongoose.connect(database.url); 	// connect to mongoDB database on modulus.io
 app.use(express.static(__dirname + '/app')); 				// set the static files location /public/img will be /img for users
 
-app.all('*', function(req, res, next) {
+app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
-});             // CORS (Cross-Origin Resource Sharing) headers to support Cross-site HTTP requests
+});      // CORS (Cross-Origin Resource Sharing) headers to support Cross-site HTTP requests
 
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 app.use(morgan('dev')); 										// log every request to the console
