@@ -88,9 +88,7 @@ leonCRM.controller('viewContactModalCtrl', function ($scope, $http, contact, $mo
     $scope.contact = contact.data.contact;
 
 
-
     $scope.ordersTotal = 0.00;
-
 
 
     //Calculate grand total
