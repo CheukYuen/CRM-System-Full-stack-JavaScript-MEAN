@@ -15,19 +15,20 @@ angular.module('scotchTodo')
         var currentCustomerID = $routeParams.contactId;
 
         //get customer name
-        $http.get('/api/contact/' + currentCustomerID)
-            .success(function (data) {
-                console.log(data.contact.name);
+        if (currentCustomerID != null) {
+            $http.get('/api/contact/' + currentCustomerID)
+                .success(function (data) {
+                    console.log(data.contact.name);
 
 
-                $scope.currentCustomer = {
-                    name: data.contact.name
-                };
-            })
-            .error(function (data) {
-                console.log('Error: ' + data);
-            });
-
+                    $scope.currentCustomer = {
+                        name: data.contact.name
+                    };
+                })
+                .error(function (data) {
+                    console.log('Error: ' + data);
+                });
+        }
 
         //get products
         $http.get(dataUrl)

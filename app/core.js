@@ -28,7 +28,7 @@ leonCRM.config(['$routeProvider', function ($routeProvider) {
     }).when('/event', {
         templateUrl: 'views/event.html'
     }).otherwise({
-        redirectTo: '/dashboard'
+        redirectTo: '/signin'
     });
 }]);
 
