@@ -1,4 +1,4 @@
-var leonCRM = angular.module('scotchTodo', ['ui.bootstrap', 'ngRoute', 'contacts.factory', 'customFilters', 'telFilter','cart']);
+var leonCRM = angular.module('scotchTodo', ['ui.bootstrap', 'ngRoute', 'contacts.factory', 'customFilters', 'telFilter','cart', 'gridshore.c3js.chart','dashboard.services']);
 
 leonCRM.config(['$routeProvider', function ($routeProvider) {
 
@@ -24,7 +24,8 @@ leonCRM.config(['$routeProvider', function ($routeProvider) {
     }).when('/signin', {
         templateUrl: 'views/signin.html'
     }).when('/dashboard', {
-        templateUrl: 'views/dashboard.html'
+        templateUrl: 'views/dashboard.html',
+        controller: 'dashboardCtrl'
     }).when('/event', {
         templateUrl: 'views/event.html'
     }).otherwise({

@@ -1,7 +1,7 @@
 /**
  * Created by zlin on 12/11/14.
  */
-angular.module('scotchTodo')
+leonCRM
     .constant('dataUrl', 'https://api.parse.com/1/classes/Products')
     .run(function ($http) {
         $http.defaults.headers.common['X-Parse-Application-Id'] = 'BHBNeR7iY2yEXR3tx1djnfEZXVm6SSMv0GhqlvTQ';

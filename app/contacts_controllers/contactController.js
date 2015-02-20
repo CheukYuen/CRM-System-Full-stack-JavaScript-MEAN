@@ -1,7 +1,7 @@
 /**
  * Created by zlin on 12/3/14.
  */
-angular.module('scotchTodo').controller('contactController', function ($scope, $http, contactFactory, $modal, cart) {
+leonCRM.controller('contactController', function ($scope, $http, contactFactory, $modal, cart) {
 
     //$scope.formData = {};
     $scope.removeCartData = cart.removeAllProduct();

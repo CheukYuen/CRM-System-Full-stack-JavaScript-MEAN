@@ -1,7 +1,7 @@
 /**
  * Created by zlin on 12/15/14.
  */
-angular.module('scotchTodo').controller('checkoutController', function ($http, $scope, cart, $routeParams, contactFactory) {
+leonCRM.controller('checkoutController', function ($http, $scope, cart, $routeParams, contactFactory) {
 
 
     $scope.currentCustomer = {
