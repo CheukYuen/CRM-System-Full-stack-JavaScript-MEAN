@@ -1,6 +1,6 @@
 <div class="panel panel-default row" ng-controller="productListCtrl">
     <div class="col-xs-3">
-        <a ng-click="selectCategory()"
+        <a ng-click="selectCategory()" style="margin-top: 20px"
            class="btn btn-block btn-default btn-lg">Home</a>
         <a ng-repeat="item in data.products | orderBy:'category' | unique:'category'"
            ng-click="selectCategory(item)" class=" btn btn-block btn-default btn-lg"
@@ -9,7 +9,7 @@
         </a>
     </div>
     <div class="col-xs-8">
-        <div class="well"
+        <div class="well" style="margin-top: 20px"
              ng-repeat="item in data.products | filter:categoryFilterFn | range:selectedPage:pageSize">
             <h3>
                 <strong>{{item.name}}</strong>
