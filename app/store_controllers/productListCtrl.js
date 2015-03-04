@@ -5,7 +5,7 @@
 
 leonCRM
     .constant('productListActiveClass', 'btn-primary')
-    .constant('productListPageCount', 3)
+    .constant('productListPageCount', 4)
     .controller('productListCtrl', function ($scope, $filter,
                                              productListActiveClass, productListPageCount,cart) {
 

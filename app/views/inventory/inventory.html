@@ -10,28 +10,62 @@
 
 </div>
 
-<div class="panel panel-default row" ng-controller="productListCtrl">
+<div class="panel panel-default row" ng-controller="productListCtrl" >
     <div class="col-xs-3">
         <a ng-click="selectCategory()"
-           class="btn btn-block btn-default btn-lg">Home</a>
+           class="btn btn-block btn-default btn-lg" style="margin-top: 20px">Home</a>
         <a ng-repeat="item in data.products | orderBy:'category' | unique:'category'"
            ng-click="selectCategory(item)" class=" btn btn-block btn-default btn-lg"
            ng-class="getCategoryClass(item)">
             {{item}}
         </a>
     </div>
-    <div class="col-xs-8">
-        <div class="well"
+
+
+    <div class="col-xs-8" >
+
+
+        <!--<div class="well"-->
+        <!--ng-repeat="item in data.products | filter:categoryFilterFn | range:selectedPage:pageSize">-->
+        <!--<h3>-->
+        <!--<strong>{{item.name}}</strong>-->
+        <!--<span class="pull-right label label-primary">-->
+        <!--{{item.price | currency}}-->
+        <!--</span>-->
+        <!--</h3>-->
+
+        <!--<span class="lead">{{item.description}}</span>-->
+        <!--</div>-->
+
+        <div class=" well " style="margin-top: 20px"
              ng-repeat="item in data.products | filter:categoryFilterFn | range:selectedPage:pageSize">
+
+
             <h3>
                 <strong>{{item.name}}</strong>
-                    <span class="pull-right label label-primary">
-                        {{item.price | currency}}
-                    </span>
+        <span class="pull-right label label-primary">
+        {{item.price | currency}}
+        </span>
             </h3>
 
             <span class="lead">{{item.description}}</span>
         </div>
+
+     
+        <!--<div class="thumbnail">-->
+        <!--<img src="..." alt="...">-->
+
+        <!--<div class="caption">-->
+        <!--<h3>Thumbnail label</h3>-->
+
+        <!--<p>...</p>-->
+
+        <!--<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default"-->
+        <!--role="button">Button</a></p>-->
+        <!--</div>-->
+        <!--</div>-->
+
+
         <div class="pull-right btn-group">
             <a ng-repeat="page in data.products | filter:categoryFilterFn | pageCount:pageSize"
                ng-click="selectPage($index + 1)" class="btn btn-default"
